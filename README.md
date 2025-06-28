@@ -8,10 +8,10 @@
 
 ## TODO 
 
-- [] adjust naming to match a standard
-- [] add a logger library
-- [] test usescases 
-- [] add errors in the controller and do not go out with the real errors , like "User can not log in"
+- [ ] adjust naming to match a standard
+- [ ] add a logger library
+- [ ] test usescases 
+- [ ] add errors in the controller and do not go out with the real errors , like "User can not log in"
 
 
 
