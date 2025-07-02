@@ -2,6 +2,7 @@ package controller
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/omaraliali1010/go_template/domain"
@@ -12,6 +13,7 @@ type RefreshTokenController struct {
 }
 
 func (rt *RefreshTokenController) RefreshToken(w http.ResponseWriter, r *http.Request) {
+	log.Println("RefreshTokenController called with req ", r)
 	var req domain.RefreshTokenRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)

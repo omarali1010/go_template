@@ -1,6 +1,7 @@
 package route
 
 import (
+	"log"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -21,6 +22,7 @@ var (
 )
 
 func NewRefreshTokenRouter(app *bootstrap.Application, timeout time.Duration, router chi.Router) {
+	log.Println("NewRefreshTokenRouter called with router ", router)
 	userRepo := repository.NewUserRepository(app.DB)
 
 	refreshTokenUC := usecase.NewRefreshTokenUserCase(userRepo, app.JWTService, app.JWTService, app.JWTService, timeout)
@@ -29,6 +31,6 @@ func NewRefreshTokenRouter(app *bootstrap.Application, timeout time.Duration, ro
 		RefreshTokenUsecase: refreshTokenUC,
 	}
 
-	router.Get("/protected/refreshToken", sc.RefreshToken)
+	router.Post("/public/refreshToken", sc.RefreshToken)
 
 }

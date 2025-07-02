@@ -1,6 +1,7 @@
 package route
 
 import (
+	"log"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -9,6 +10,7 @@ import (
 )
 
 func Setup(app *bootstrap.Application, timeout time.Duration, r *chi.Mux) {
+	log.Println("Route called with req ", r)
 	// Public APIs
 	r.Group(func(r chi.Router) {
 		NewSignupRouter(app, timeout, r)
